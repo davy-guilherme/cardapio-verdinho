@@ -1,6 +1,6 @@
 <template>
     <div id="box-topo">
-        <small>10% OFF na primeira compra usando VERDIN10</small>
+        <small>Servimos refeições de Seg. a Sáb. das 11h às 15h30</small>
     </div>
     
 
@@ -35,32 +35,37 @@
         
     </div>
 
-    <div id="topo">
-        <div class="margem">
+    <div id="topo-fixo">
 
-            <!-- <div class="redes-sociais">
-                <a href="#" target="_blank"><i class="fa fa-facebook"></i></a>
-                <a href="#" target="_blank"><i class="fa fa-instagram"></i></a>
-                <a href="#" target="_blank"><i class="fa fa-linkedin-square"></i></a>
-                <a href="#" target="_blank"><i class="fa fa-twitter"></i></a>
-                <a href="#" target="_blank"><i class="fa fa-youtube-play"></i></a>
-                <a href="#" target="_blank"><i class="fa fa-spotify"></i></a>
-            </div> -->
+        <div id="topo">
+            <div class="margem">
 
-            <div class="pesquisa">
-                <!--<a class="link-ouvidoria hide-in-mobile" href="<?php # echo get_page_link( get_page_by_path( 'ouvidoria' ) ); ?>"><i class="fa fa-envelope"></i>Ouvidoria</a>-->
-                <form method="get" action="<?php esc_url(home_url('/')); ?>">
-                    <div id="pesquisa-box">
-                        <i class="fa fa-search"></i>
-                        <input type="text" name="s" id="s" placeholder="Pesquisar" style="box-shadow: none; margin: 0; padding: 0;" />
-                        <input type="hidden" name="post_type" value="product" />
-                    </div>
-                </form>
+                <!-- <div class="redes-sociais">
+                    <a href="#" target="_blank"><i class="fa fa-facebook"></i></a>
+                    <a href="#" target="_blank"><i class="fa fa-instagram"></i></a>
+                    <a href="#" target="_blank"><i class="fa fa-linkedin-square"></i></a>
+                    <a href="#" target="_blank"><i class="fa fa-twitter"></i></a>
+                    <a href="#" target="_blank"><i class="fa fa-youtube-play"></i></a>
+                    <a href="#" target="_blank"><i class="fa fa-spotify"></i></a>
+                </div> -->
+
+                <div class="pesquisa">
+                    <!--<a class="link-ouvidoria hide-in-mobile" href="<?php # echo get_page_link( get_page_by_path( 'ouvidoria' ) ); ?>"><i class="fa fa-envelope"></i>Ouvidoria</a>-->
+                    <form method="get" action="<?php esc_url(home_url('/')); ?>">
+                        <div id="pesquisa-box">
+                            <i class="fa fa-search"></i>
+                            <input type="text" name="s" id="s" placeholder="Pesquisar" style="box-shadow: none; margin: 0; padding: 0;" />
+                            <input type="hidden" name="post_type" value="product" />
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
-    </div>
 
-    <CategoryScroll />
+        <CategoryScroll />
+
+    </div>
+    
 
 </template>
 
@@ -92,13 +97,20 @@
 
 }
 
+#topo-fixo {
+    position: sticky;
+    top: 0;
+    z-index: 880;
+    background: linear-gradient(#fff, #fff, #fff, #fff, #fff, #fff, #fff, #fff, rgba(255,255, 255, 0.9), rgba(255,255, 255, 0.8), rgba(255,255, 255, 0.7), rgba(255,255, 255, 0.6), rgba(255,255, 255, 0.2), rgba(255,255, 255, 0.0));
+}
+
 #topo {
     width: 100%;
     position: relative;
     box-shadow: 0 4px 2px -2px rgba(0, 0, 0, .1);
-    position: sticky;
-    top: 0;
-    z-index: 880;
+    
+    
+    
     background: #fff;
 }
 
@@ -170,9 +182,9 @@
 
     background-color: #f1ffde;
     padding: 8px 16px;
-    border-radius: 32px;
+    border-radius: 6px;
     border: 1px solid #93d63b;
-    width: 100%;;
+    width: 100%;
 }
 
 #pesquisa-box i {
@@ -228,6 +240,7 @@
     color: #93d63b;
     margin-right: 16px;
     font-size: 32px;
+    display: none;
 }
 
 #header-topo .margem .logo-menu {
@@ -246,6 +259,10 @@
 
 #header-topo .margem .logo-menu img {
     height: 98px;
+}
+
+#header-topo .margem .logo-menu p {
+
 }
 
 #header-topo .margem p {

@@ -4,6 +4,7 @@ export default createStore({
   state: {
     selectedProduct: {},
     showSelectedProduct: false,
+    keyWord: '',
   },
   getters: {
     getSelectedProduct(state) {
@@ -11,6 +12,9 @@ export default createStore({
     },
     getShowSelectedProduct(state) {
       return state.showSelectedProduct
+    },
+    getKeyWord(state) {
+      return state.keyWord
     },
   },
   mutations: {
@@ -20,6 +24,9 @@ export default createStore({
     SET_SHOW_SELECTED_PRODUCT (state, show) {
       state.showSelectedProduct = show
     },
+    SET_KEY_WORD (state, keyWord) {
+      state.keyWord = keyWord
+    },
   },
   actions: {
     showSelectedProduct( {commit}, selectedProduct ) {
@@ -28,6 +35,10 @@ export default createStore({
     },
     closeSelectedProduct( {commit} ) {
       commit('SET_SHOW_SELECTED_PRODUCT', false)
+    },
+    setKeyWord( {commit}, keyWord ) {
+      if (keyWord != null && keyWord != '')
+      commit('SET_KEY_WORD', keyWord)
     },
   },
   modules: {

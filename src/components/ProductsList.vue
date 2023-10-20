@@ -4,15 +4,15 @@
     </div>
     <ProductsGroup :products="refeicoes" v-if="refeicoes.length" />
 
-    <div class="margem" id="cat-DOC" v-if="doces.length">
-        <h2>Doces e Sobremesas</h2>
-    </div>
-    <ProductsGroup :products="doces" v-if="doces.length" />
-
     <div class="margem" id="cat-POR" v-if="porcoes.length">
         <h2>Porções</h2>
     </div>
     <ProductsGroup :products="porcoes" v-if="porcoes.length" />
+
+    <div class="margem" id="cat-DOC" v-if="doces.length">
+        <h2>Doces e Sobremesas</h2>
+    </div>
+    <ProductsGroup :products="doces" v-if="doces.length" />
 
     <div class="margem" id="cat-BEB" v-if="bebidas.length">
         <h2>Bebidas</h2>
@@ -29,6 +29,7 @@
 .margem h2 {
     margin-bottom: 6px;
     margin-top: 24px;
+    color: green;
 }
 </style>
 
@@ -51,11 +52,11 @@ export default {
         refeicoes () {
             return this.products.filter(product => product.type === 'REF')
         },
-        doces () {
-            return this.products.filter(product => product.type === 'DOC')
-        },
         porcoes () {
             return this.products.filter(product => product.type === 'POR')
+        },
+        doces () {
+            return this.products.filter(product => product.type === 'DOC')
         },
         bebidas () {
             return this.products.filter(product => product.type === 'BEB')

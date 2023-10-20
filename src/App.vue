@@ -1,11 +1,14 @@
 <template>
+  <HeaderComponent />
   <router-view/>
+  <ProductInfo />
+  <FooterComponent />
 </template>
 
 <style lang="scss">
 * {
-    /* margin: 0;
-    padding: 0; */
+    margin: 0;
+    padding: 0;
     /* font-family: 'Roboto', sans-serif; */
     font-family: 'Ubuntu', sans-serif;
     /* box-sizing: content-box; */
@@ -40,33 +43,11 @@ textarea {
 .margem {
     position: relative;
     /* max-width: 1198px; */
-    max-width: 1224px;
+    max-width: 1320px;
     margin: 0 auto;
-    padding: 12px;
+    padding: 12px 16px;
 }
 
-#topo > .margem > *, #header-topo > .margem > * {
-    /* Resetting margin, padding, and other properties */
-    margin: 0 !important;
-    padding: 0 !important;
-    /* Resetting font-related properties */
-    font-family: initial !important;
-    font-size: initial !important;
-    /* Resetting background and color properties */
-    background: initial !important;
-    color: initial;
-    /* Add any other properties you want to reset here */
-    
-    font-family: initial !important;
-    font-size: initial !important;
-    
-    line-height: initial !important;
-    
-    box-sizing: border-box;
-    font-weight: 400;
-    box-shadow: none !important;
-    
-}
 
 body {
     /* Resetting margin, padding, and other properties */
@@ -82,3 +63,18 @@ body {
 }
 
 </style>
+
+<script>
+import HeaderComponent from '@/components/HeaderComponent.vue'
+import FooterComponent from '@/components/FooterComponent.vue'
+import ProductInfo from '@/components/ProductInfo.vue'
+
+export default {
+  name: 'App',
+  components: {
+    HeaderComponent,
+    FooterComponent,
+    ProductInfo,
+  }
+}
+</script>

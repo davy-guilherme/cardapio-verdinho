@@ -1,6 +1,5 @@
 <template>
-    <HeaderComponent />
-    <h1>oi</h1>
+    <ProductsList />
 </template>
 
 <style lang="scss">
@@ -8,7 +7,7 @@
 </style>
 
 <script>
-import HeaderComponent from '../components/HeaderComponent.vue';
+import ProductsList from '../components/ProductsList.vue';
 
 export default {
     name: 'HomePage',
@@ -18,7 +17,7 @@ export default {
         }
     },
     components: {
-        HeaderComponent
+        ProductsList,
     }
 }
 </script>

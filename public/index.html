@@ -24,5 +24,10 @@
     </noscript>
     <div id="app"></div>
     <!-- built files will be auto injected -->
+    <script>
+      window.addEventListener("hashchange", function () {
+        window.scrollTo(window.scrollX, window.scrollY - 60);
+    });
+    </script>
   </body>
 </html>

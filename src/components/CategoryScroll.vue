@@ -4,9 +4,10 @@
 
         <nav id="hscroll">
             <div class="margem h-scroll-interno">
-                <a class="active-cat" href="#">Tudo</a>
-                <a href="#">Bebidas</a>
-                <a href="#">Bebidas</a>
+                <!-- <a class="active-cat" href="">Tudo</a> -->
+                <a href="#cat-REF">Refeições</a>
+                <a href="#cat-DOC">Doces e Sobremesas</a>
+                <a href="#cat-BEB">Bebidas</a>
             </div>
         </nav>
 

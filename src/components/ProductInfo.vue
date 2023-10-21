@@ -1,23 +1,36 @@
 <template>
-    <div id="produto" v-if="show">
+<div id="productInfo" :class="{ showProductInfo: show }"><!-- v-if="show" -->
         <div class="bg" @click="fechar()"></div>
-        <div class="box-selecionarProduto">
+        <div class="productInfoBox" :class="{ showProductInfoBox : show, hideProductInfoBox: !show }">
             <div id="btn-fechar" @click="fechar()">
-                <img src="#" alt="fechar">
+                <i class="fa fa-times-circle"></i>
             </div>
-            <div class="descricao">
-                 <div class="descricao-img">
-                    <img :src="product.image" :alt="product.name">
+            <div class="productData margem">
+                <div class="descricao">
+                    <div class="descricao-img">
+                        <img :src="product.image" :alt="product.name">
+                    </div>
+                    <div class="descricao-txt">
+                        <p class="type">{{ productType }}</p>
+                        <p class="nome">{{ product.name }}</p>
+                    </div>
                 </div>
-                <div class="descricao-txt">
-                    <p class="type">{{ product.category }}</p>
-                    <p class="nome">{{ product.name }}</p>
-                </div>
-            </div>
 
-            <div class="info">
-                <p>{{ product.description }}</p>
+                <div class="info">
+                    <p>{{ product.description }}</p>
+                </div>
+
+                <div class="price">
+                    <p>R$ {{ product.price }}</p>
+                </div>
+
+                <div class="buttons">
+                    <a :href="whatsAppUrl" class="whatsapp" target="_blank">Pedir pelo WhatsApp</a>
+                    <button class="ifood">Pedir pelo iFood</button>
+                </div>
+                
             </div>
+            
 
             
             
@@ -30,21 +43,25 @@
 </template>
 
 <style lang="scss" scoped>
-#produto {
+#productInfo {
     position: fixed;
     width: 100%;
     height: 100%;
     top: 0;
     right: 0;
     z-index: 900;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
+    // display: flex;
+    // flex-direction: column;
+    // justify-content: space-around;
+    // align-items: center;
+    display: none;
+
     .bg {
         width: 100%;
         height: 100%;
-        background: rgba(81, 204, 10, 0.5);
+        background: rgba(81, 204, 10, 0.2);
+        // // background: rgba(241, 205, 70, 0.3); // #f1cd46
+        // // background: rgba(145, 100, 205, 0.5); // #9164cd
         position: absolute;
         top: 0;
         right: 0;
@@ -52,80 +69,173 @@
 
     }
 
-    .box-selecionarProduto {
+    .productInfoBox {
         
-        position: relative;
-        width: 332px;
-        background: white;
+        position: absolute;
+        bottom: -70px;
+        width: 100%;
+        height: calc(76vh + 70px);
+        background: #fff;
         // top: 0;
         // right: calc(50% - 180px);
         z-index: 902;
-        border-radius: 16px;
-        padding: 32px 16px;
+        border-radius: 48px 48px 0 0;
+        padding: 24px 16px;
+
+        // overflow: scroll;
 
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
+        justify-content: flex-start;
         align-items: center;
+        transition: 2s;
 
         #btn-fechar {
             position: absolute;
-            top: 20px;
-            right: 20px;
+            // top: 32px;
+            // right: 32px;
+
+            top: -0.9rem;
+            right: 76px;
             cursor: pointer;  
             width: 18px;
             height: 18px;
             
-            img {
-                width: 100%;
+            i {
+                font-size: 3.2rem;
+                // color: rgb(255, 73, 73);
+                color: rgb(145, 100, 205);
+                
             }
         }
 
-        .descricao {
+        .productData {
             width: 100%;
+            height: 89%;
+            overflow: scroll;
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
-
-            .descricao-img {
-                flex: 2;
-                padding: 8px;
+            
+            .descricao {
                 width: 100%;
-                height: 500px;
-                overflow: hidden;
-                img {
+                max-width: 600px;
+                height: 180px;
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+
+                .descricao-img {
+                    flex: 4;
+                    padding: 8px;
                     width: 100%;
-                    border-radius: 8px;
+                    height: 100%;
+                    overflow: hidden;
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: flex-end;
+                    align-items: center;
+                    img {
+                        max-width: 100%;
+                        max-height: 100%;
+                        border-radius: 6px;
+                    }
                 }
+
+                .descricao-txt {
+                    padding: 8px;
+                    flex: 4;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: right;
+
+                    .type {
+                        font-size: 0.9rem;
+                        // color: #8CC740;
+                        // color: #9ed47b;
+                        color: green;
+                        font-weight: 1em;
+                    }
+                    .nome {
+                        // color: #7E7E7E;
+                        color: #000;
+                        font-size: 1.05rem;
+                        font-weight: 600;
+                    }
+                }
+
+                .descricao-favoritar {
+                    flex: 1;
+                    cursor: pointer;
+                }
+
             }
 
-            .descricao-txt {
-                padding: 8px;
-                flex: 3;
+            .info {
+                margin: 8px 0;
+                width: 100%;
+                max-width: 600px;
+            }
+
+            .info p {
+                font-size: 0.9rem;
+                line-height: 1.3;
+                color: #000;
+                font-weight: 300;
+            }
+
+            .price {
+                margin: 8px 0;
+                width: 100%;
+                max-width: 600px;
+            }
+
+            .price p {
+                text-align: right;
+            }
+
+            .buttons {
+                height: 40px;
                 display: flex;
                 flex-direction: column;
-                justify-content: center;
-                align-items: right;
+                margin: 8px 0;
+                width: 100%;
+                max-width: 600px;
 
-                .categoria {
-                    font-size: 12px;
-                    color: #8CC740;
-                    font-weight: 1em;
+
+                button, a {
+                    padding: 12px 20px;
+                    border-radius: 4px;
+                    display: block;
+                    color: #fff;
+                    text-decoration: none;
+                    text-align: center;
+                    font-size: 1.1rem;
+                    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+                    letter-spacing: 2px;
+                    background-color: #60d166;
+                    color: #000;
+                    border: none;
+                    margin: 8px 0;
+                    cursor: pointer;
                 }
-                .nome {
-                    color: #7E7E7E;
-                    font-size: 16px;
-                    font-weight: 1.2em;
+
+                .whatsapp {
+                    background-color: #60d166;
+                    color: #000;
+                }
+
+                .ifood {
+                    background-color: #ec3732;
+                    color: #fff;
                 }
             }
-
-            .descricao-favoritar {
-                flex: 1;
-                cursor: pointer;
-            }
-
         }
+
+        
 
         .vendido-por {
             width: 98%;
@@ -195,9 +305,61 @@
 
 
     }
+    .productInfoBox.showProductInfoBox {
+        animation: fadeIn .6s, slideIn .8s linear;
+    }
+
+    // .productInfoBox.hideProductInfoBox {
+    //     animation: fadeOut 1s, slideOut .8s linear;
+    // }
+
+
     
     
 }
+
+#productInfo.showProductInfo {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+
+
+
+
+
+@keyframes slideIn {
+  0% {
+    transform: translateY(400px);
+    animation-timing-function: ease-out;
+  }
+  60% {
+    transform: translateY(-30px);
+    animation-timing-function: ease-in;
+  }
+  80% {
+    // transform: translateY(10px);
+    transform: translateY(-20px);
+    animation-timing-function: ease-out;
+  }
+  100% {
+    transform: translateY(0px);
+    animation-timing-function: ease-in;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+
 </style>
 
 <script>
@@ -212,6 +374,24 @@ export default {
         },
         show () {
             return this.$store.state.showSelectedProduct
+        },
+        productType () {
+            switch (this.product.type) {
+                case 'REF':
+                    return 'Refeição'
+                case 'POR':
+                    return 'Porção'
+                case 'DOC':
+                    return 'Doce ou Sobremesa'
+                case 'BEB':
+                    return 'Bebida'
+                default:
+                    return ''
+            }
+        },
+        whatsAppUrl () {
+            return new URL("https://api.whatsapp.com/send/?phone=5511919718205&text=Olá!%0aGostaria+de+pedir:+" + this.product.name);
+            
         }
 
     },

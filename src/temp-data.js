@@ -114,7 +114,7 @@ export const products = [
         name: 'Torta Cookies \'n Cream',
         price: '14.00',
         serves: '',
-        description: 'Feitas com trigo importado da itália, nossas massas são cozidas na hora e você pode escolher o seu tipo de massa favorito e o molho. São 4 tipos de massa, 4 tipos de molho e 5 opções de adicionais para acrescentar em sua refeição.',
+        description: 'Torta Sorvete Irresistível! Essa é a nossa torta Cookies \'n Cream. Base de biscoito tipo Oreo, recheio cremoso de baunilha com pedaços de biscoito, coberta por biscoitos crocantes. Uma sobremesa leve e deliciosamente vegana! Produção própria. Armazenamento em Freezer.',
         image: totaCookiesAndCream,
         type: 'DOC'
     },

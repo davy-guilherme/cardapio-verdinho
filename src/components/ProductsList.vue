@@ -93,6 +93,9 @@ export default {
         }
         
         // console.log(productsWithRefri);
+    },
+    mounted () {
+        
     }
     
 }

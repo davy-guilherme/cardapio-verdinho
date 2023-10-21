@@ -90,7 +90,7 @@
     color: #2e2e2e;
     border-radius: 4px;
     border: none;
-    padding: 12px 24px;
+    padding: 12px 16px;
     cursor: pointer;
     font-weight: 500;
     transition: 0.2s;

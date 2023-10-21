@@ -41,7 +41,7 @@
     
     top: 4px;
     left: 0;
-    height: 60px;
+    height: 42px;
     width: 32px;
     background: linear-gradient(to right, rgb(255, 255, 255), rgba(255, 255, 255, 0));
 }
@@ -50,7 +50,7 @@
     position: absolute;
     top: 4px;
     right: 0;
-    height: 60px;
+    height: 42px;
     width: 32px;
     background: linear-gradient(to left, rgb(255, 255, 255), rgba(255, 255, 255, 0));
 }
@@ -141,7 +141,8 @@ export default {
             for (var i = 0; i < menus.length; i++) {
                 if (menus[i].classList.contains('active')) {
                     // alert(i)
-                    hscroll.scrollLeft = menus[i].offsetLeft - 12;
+                    // hscroll.scrollLeft = menus[i].offsetLeft - 12;
+                    hscroll.scrollLeft = menus[i].offsetLeft - 26;
                 }
             }
             

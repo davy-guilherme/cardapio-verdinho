@@ -3,7 +3,7 @@
         <small>Servimos refeições de Seg. a Sáb. das 11h às 15h30</small>
     </div>
     
-
+    <!-- {{  $store.state.keyWord }} -->
     <header id="header-topo">
         <div class="margem">
 
@@ -30,10 +30,10 @@
         </div>
     </header>
 
-    <div id="tempo-entrega">
+    <!-- <div id="tempo-entrega">
         <p><i class="fa fa-clock-o" aria-hidden="true"></i> 15 - 45 min - <span id="btn-horario">Ver Mais</span></p>
         
-    </div>
+    </div> -->
 
     <div id="topo-fixo">
 
@@ -51,18 +51,19 @@
 
                 <div class="pesquisa">
                     <!--<a class="link-ouvidoria hide-in-mobile" href="<?php # echo get_page_link( get_page_by_path( 'ouvidoria' ) ); ?>"><i class="fa fa-envelope"></i>Ouvidoria</a>-->
-                    <form method="get" action="<?php esc_url(home_url('/')); ?>">
+                    <form>
                         <div id="pesquisa-box">
-                            <i class="fa fa-search"></i>
-                            <input type="text" name="s" id="s" placeholder="Pesquisar" style="box-shadow: none; margin: 0; padding: 0;" />
+                            <i class="fa fa-search search-icon"></i>
+                            <input type="text" name="s" id="s" placeholder="Pesquisar" style="box-shadow: none; margin: 0; padding: 0;" v-model="$store.state.keyWord" />
                             <input type="hidden" name="post_type" value="product" />
+                            <i class="fa fa-times-circle delete-icon" v-if="$store.state.keyWord.length > 0" @click="$store.state.keyWord = ''"></i>
                         </div>
                     </form>
                 </div>
             </div>
         </div>
 
-        <CategoryScroll />
+        <CategoryScroll v-if="$store.state.keyWord.length == 0" />
 
     </div>
     
@@ -179,7 +180,7 @@
 }
 
 #topo .margem .pesquisa form #pesquisa-box {
-
+    position: relative;
     background-color: #f1ffde;
     padding: 8px 16px;
     border-radius: 6px;
@@ -189,6 +190,19 @@
 
 #pesquisa-box i {
     color: #93d63b;
+}
+
+#pesquisa-box .search-icon {
+   
+}
+
+#pesquisa-box .delete-icon {
+    position: absolute;
+    right: 16px;
+    color: #000;
+    font-size: 1.3rem;
+    cursor: pointer;
+    color: rgba(255, 0, 0, 0.8);
 }
 
 #pesquisa-box input {
@@ -225,7 +239,7 @@
 
     width: 100%;
     position: relative;  
-    border-bottom: 1px solid #ccc;
+    border-bottom: 1px solid #cfcfcf;
 }
 
 #header-topo .margem {
@@ -241,6 +255,13 @@
     margin-right: 16px;
     font-size: 32px;
     display: none;
+}
+
+#header-topo .margem { // retirar para voltar o menu
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
 }
 
 #header-topo .margem .logo-menu {

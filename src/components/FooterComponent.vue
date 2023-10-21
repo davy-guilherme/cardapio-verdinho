@@ -2,11 +2,11 @@
     <footer class="margem">
         <div class="esquerda">
             <strong>&copy; 2023</strong>
-            <a href="/">Verdinho Vegano</a>
+            <a href="https://verdinhovegano.com.br/" target="_blank">Verdinho Vegano</a>
         </div>
         <div class="direita">
             <small>Desenvolvido por</small>
-            <strong><a href="http://www.dguilherme.dev">Davy Guilherme</a></strong>
+            <strong><a href="http://www.dguilherme.dev" target="_blank">Davy Guilherme</a></strong>
         </div>
     </footer>
 </template>

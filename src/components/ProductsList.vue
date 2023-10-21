@@ -19,6 +19,11 @@
     </div>
     <ProductsGroup :products="bebidas" v-if="bebidas.length" />
 
+    <div class="margem" v-if="keyWord.length > 0 && productsFiltered.length == 0">
+        <h2><span style="font-weight: 400;">Pesquisando por: </span>{{ keyWord }}</h2>
+        <p style="text-align: center; margin: 64px 0;">Não encontramos nenhum produto com o termo pesquisado.</p>
+    </div>
+
 </template>
 
 <style lang="scss" scoped>
@@ -42,7 +47,8 @@ export default {
     name: 'ProductsList',
     data () {
         return {
-            products
+            products,
+            productsFiltered: ''
         }
     },
     components: {
@@ -50,20 +56,43 @@ export default {
     },
     computed: {
         refeicoes () {
-            return this.products.filter(product => product.type === 'REF')
+            return this.productsFiltered ? this.productsFiltered.filter(product => product.type === 'REF') : this.products.filter(product => product.type === 'REF')
         },
         porcoes () {
-            return this.products.filter(product => product.type === 'POR')
+            return this.productsFiltered ? this.productsFiltered.filter(product => product.type === 'POR') : this.products.filter(product => product.type === 'POR')
         },
         doces () {
-            return this.products.filter(product => product.type === 'DOC')
+            return this.productsFiltered ? this.productsFiltered.filter(product => product.type === 'DOC') : this.products.filter(product => product.type === 'DOC')
         },
         bebidas () {
-            return this.products.filter(product => product.type === 'BEB')
+            return this.productsFiltered ? this.productsFiltered.filter(product => product.type === 'BEB') : this.products.filter(product => product.type === 'BEB')
+        },
+        keyWord () {
+            return this.$store.state.keyWord
+        },
+    },
+    watch: {
+        keyWord: function (val) {
+            this.productsFiltered = this.findProductsWith(val);
         },
     },
     methods: {
-    
+        findProductsWith(val) {
+            // Array para armazenar os produtos com val no nome.
+            const productsWith = [];
+
+            // Percorre a lista de produtos e verifica se o nome contém val
+            for (const product of this.products) {
+                if (product.name.toLowerCase().includes(val.toLowerCase())) {
+                    productsWith.push(product);
+                }
+            }
+
+            return productsWith
+
+        }
+        
+        // console.log(productsWithRefri);
     }
     
 }

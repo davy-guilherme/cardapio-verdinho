@@ -7,11 +7,11 @@
             <div class="info">
                 <div class="txt">
                     <h4>{{ product.name }}</h4>
-                    <p>{{ product.description }}</p>
+                    <p>{{ product.description.length > 140 ? product.description.slice(0, 136) + '...' : product.description }}</p>
                 </div>
                 <div class="footer">
                     <p class="price">R$ {{ product.price }}</p>
-                    <button @click="showProductDetails(product)">+ Info</button>
+                    <button @click="showProductDetails(product)">+ Informações</button>
                 </div>
             </div>
         </div>
@@ -60,13 +60,17 @@
 }
 
 .margem .produto .info h4 {
-    font-size: 1.2rem;
-    margin: 0;
+    font-size: 1.05rem;
+    font-weight: 400;
+    margin: 2px 0 4px 0;
     padding: 0;
 }
 
 .margem .produto .info p {
     font-size: 0.9rem;
+    line-height: 1.3;
+    color: rgb(113, 113, 113);
+    font-weight: 300;
 }
 
 .margem .produto .info .footer {
@@ -77,14 +81,25 @@
     margin-top: 16px;
 }
 
+.margem .produto .info .footer .price {
+    font-weight: 400;
+}
+
 .margem .produto .info .footer button {
     background-color: #9ed47b;
     color: #2e2e2e;
     border-radius: 4px;
     border: none;
-    padding: 6px 12px;
+    padding: 12px 22px;
     cursor: pointer;
+    font-weight: 500;
+    transition: 0.2s;
     // box-shadow: 0 4px 2px -2px rgba(0, 0, 0, .1) !important;
+}
+
+.margem .produto .info .footer button:hover {
+    background: green;
+    color: #fff;
 }
 
 @media (max-width: 992px) {
@@ -99,7 +114,7 @@
 
 @media (max-width: 576px) { 
     .margem .produto {
-        grid-template-columns: 3fr 9r;
+        grid-template-columns: 4fr 8fr;
     }
 }
 

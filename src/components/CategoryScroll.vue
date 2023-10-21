@@ -5,10 +5,10 @@
         <nav id="hscroll">
             <div class="margem h-scroll-interno">
                 <!-- <a class="active-cat" href="">Tudo</a> -->
-                <a href="#cat-REF">Refeições</a>
-                <a href="#cat-POR">Porções</a>
-                <a href="#cat-DOC">Doces e Sobremesas</a>
-                <a href="#cat-BEB">Bebidas</a>
+                <a class="h-scroll-item" :class="{ active: 'REF' === selected }" @click="verificarScroll('REF');" href="#cat-REF">Refeições</a>
+                <a class="h-scroll-item" :class="{ active: 'POR' === selected }" @click="verificarScroll('POR');" href="#cat-POR">Porções</a>
+                <a class="h-scroll-item" :class="{ active: 'DOC' === selected }" @click="verificarScroll('DOC');" href="#cat-DOC">Doces e Sobremesas</a>
+                <a class="h-scroll-item" :class="{ active: 'BEB' === selected }" @click="verificarScroll('BEB');" href="#cat-BEB">Bebidas</a>
             </div>
         </nav>
 
@@ -105,16 +105,14 @@
 }
 
 
-#hscroll .h-scroll-interno a.active-cat {
-    background: green !important;
-    color: #fff !important;
-}
-
-
-
 #hscroll .h-scroll-interno a:hover {
     background-color: #8cc740 !important;
     color: #111 !important;
+}
+
+#hscroll .h-scroll-interno a.active  {
+    background: green !important;
+    color: #fff !important;
 }
 
 
@@ -125,5 +123,39 @@
 <script>
 export default {
     name: 'CategoryScroll',
+    data () {
+        return {
+            selected: ''
+        }
+    },
+    methods: {
+        verificarScroll (selected) {
+
+        this.selected = selected
+
+        setTimeout( () => {
+            var hscroll = document.getElementById('hscroll');
+
+            var menus = document.getElementsByClassName('h-scroll-item');
+
+            for (var i = 0; i < menus.length; i++) {
+                if (menus[i].classList.contains('active')) {
+                    // alert(i)
+                    hscroll.scrollLeft = menus[i].offsetLeft - 12;
+                }
+            }
+            
+            // Defina a quantidade que você deseja rolar horizontalmente, em pixels.
+            // var scrollAmount = -500; // Altere esse valor conforme necessário.
+            
+            // // Mova o scroll horizontalmente.
+            // hscroll.scrollLeft = scrollAmount;
+        }, 300)
+
+      }
+    },
+    mounted () {
+        // document.getElementById('h-scroll').scrollLeft = 1000;
+    }
 }
 </script>

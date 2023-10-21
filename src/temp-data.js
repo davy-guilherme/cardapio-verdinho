@@ -162,5 +162,101 @@ export const products = [
         description: '<b>Aproximadamente</b> 6 pedaços de mandioca fritinha, crocante, totalizando entre 240 e 300g',
         image: porMandiocaFrita,
         type: 'POR'
+    },
+    {
+        id: 'BEB001',
+        name: 'Chá Branco Feel Good Lichia Lata 330ml',
+        price: '7.40',
+        serves: '',
+        description: 'Lata 330ml',
+        type: 'BEB'
     }
+    ,
+    {
+        id: 'BEB002',
+        name: 'Chá Pronto Feel Good Chá Branco com Pitaya Lata 330ml',
+        price: '7.40',
+        serves: '',
+        description: 'Lata 330ml',
+        type: 'BEB'
+    },
+    {
+        id: 'BEB003',
+        name: 'Chá Pronto Verde Gengibre e Limão Zero Campo Largo 900ml',
+        price: '10.50',
+        serves: '',
+        description: 'Garrafa 900ml',
+        type: 'BEB'
+    },
+    {
+        id: 'BEB004',
+        name: 'Água Mineral Lindoya 510ml',
+        price: '2.75',
+        serves: '',
+        description: 'Garrafa 510ml',
+        type: 'BEB'
+    },
+    {
+        id: 'BEB005',
+        name: 'Água Mineral com Gás Verão Lindoya 510ml',
+        price: '3.00',
+        serves: '',
+        description: 'Garrafa 510ml',
+        type: 'BEB'
+    },
+    {
+        id: 'BEB006',
+        name: 'Suco Sabor Laranja Natural One 300ml',
+        price: '4.50',
+        serves: '',
+        description: 'Garrafa 300ml',
+        type: 'BEB'
+    },
+    {
+        id: 'BEB007',
+        name: 'Suco de Uva e Maçã Natural One 300ml',
+        price: '4.50',
+        serves: '',
+        description: 'Embalagem 300ml',
+        type: 'BEB'
+    },
+    {
+        id: 'BEB008',
+        name: 'Refrigerante de Cola Orgânico Wewi Zero Garrafa 355ml',
+        price: '7.30',
+        serves: '',
+        description: 'Garrafa 355ml',
+        type: 'BEB'
+    },
+    {
+        id: 'BEB009',
+        name: 'Refrigerante Guaraná Wewi Zero Lata 350ml',
+        price: '7.80',
+        serves: '',
+        description: 'Lata 350ml',
+        type: 'BEB'
+    },
+    {
+        id: 'BEB010',
+        name: 'Refrigerante Orgânico Guaraná Wewi 350ml',
+        price: '6.80',
+        serves: '',
+        description: 'Lata 350ml',
+        type: 'BEB'
+    },
+    {
+        id: 'BEB011',
+        name: 'Refrigerante Orgânico Cola Wewi 350ml',
+        price: '6.80',
+        serves: '',
+        description: 'Lata 350ml',
+        type: 'BEB'
+    }
+    
+    
+    
+    
+    
+    
+    
 ];

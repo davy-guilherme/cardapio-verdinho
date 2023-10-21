@@ -10,9 +10,13 @@
                     <img :src="product.image" :alt="product.name">
                 </div>
                 <div class="descricao-txt">
-                    <p class="categoria">{{ product.category }}</p>
+                    <p class="type">{{ product.category }}</p>
                     <p class="nome">{{ product.name }}</p>
                 </div>
+            </div>
+
+            <div class="info">
+                <p>{{ product.description }}</p>
             </div>
 
             
@@ -80,15 +84,16 @@
         .descricao {
             width: 100%;
             display: flex;
-            flex-direction: row;
+            flex-direction: column;
             justify-content: space-between;
             align-items: center;
 
             .descricao-img {
                 flex: 2;
                 padding: 8px;
-                width: 88px;
-                height: 96px;
+                width: 100%;
+                height: 500px;
+                overflow: hidden;
                 img {
                     width: 100%;
                     border-radius: 8px;

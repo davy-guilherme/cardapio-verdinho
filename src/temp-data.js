@@ -231,7 +231,7 @@ export const products = [
     {
         id: 'BEB009',
         name: 'Refrigerante Guaraná Wewi Zero Lata 350ml',
-        price: '7.80',
+        price: '7,50',
         serves: '',
         description: 'Lata 350ml',
         type: 'BEB'
@@ -239,7 +239,7 @@ export const products = [
     {
         id: 'BEB010',
         name: 'Refrigerante Orgânico Guaraná Wewi 350ml',
-        price: '6.80',
+        price: '7,50',
         serves: '',
         description: 'Lata 350ml',
         type: 'BEB'
@@ -247,7 +247,23 @@ export const products = [
     {
         id: 'BEB011',
         name: 'Refrigerante Orgânico Cola Wewi 350ml',
-        price: '6.80',
+        price: '7.50',
+        serves: '',
+        description: 'Lata 350ml',
+        type: 'BEB'
+    },
+    {
+        id: 'BEB012',
+        name: 'Refrigerante Orgânico Guaraná Wewi 350ml',
+        price: '7.50',
+        serves: '',
+        description: 'Lata 350ml',
+        type: 'BEB'
+    },
+    {
+        id: 'BEB013',
+        name: 'Refrigerante Laranja Wewí Orgânico Lata 350 Ml',
+        price: 'R$ 7,50',
         serves: '',
         description: 'Lata 350ml',
         type: 'BEB'

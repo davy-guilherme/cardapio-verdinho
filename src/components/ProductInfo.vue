@@ -26,7 +26,7 @@
 
                 <div class="buttons">
                     <a :href="whatsAppUrl" class="whatsapp" target="_blank">Pedir pelo WhatsApp</a>
-                    <button class="ifood">Pedir pelo iFood</button>
+                    <!-- <button class="ifood">Pedir pelo iFood</button> -->
                 </div>
                 
             </div>
